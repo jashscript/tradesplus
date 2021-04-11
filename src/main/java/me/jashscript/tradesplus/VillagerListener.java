@@ -4,19 +4,18 @@ import me.jashscript.tradesplus.model.CustomRecipe;
 import me.jashscript.tradesplus.utils.IOHelper;
 import me.jashscript.tradesplus.utils.Mapper;
 import org.bukkit.Material;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MerchantRecipe;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 
 public class VillagerListener implements Listener {
 
@@ -94,6 +93,13 @@ public class VillagerListener implements Listener {
 
         villager.setRecipes(recipes);
         TradesPlus.villagers.add(villager.getUniqueId());
+    }
+
+    @EventHandler
+    public void onVillagerDeath(EntityDeathEvent e){
+        if(!(e.getEntity().getType().equals(EntityType.VILLAGER))) return;
+        UUID uuid = e.getEntity().getUniqueId();
+        if(TradesPlus.villagers.contains(uuid)) TradesPlus.villagers.remove(uuid);
     }
 
 }

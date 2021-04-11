@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -25,7 +26,7 @@ public final class TradesPlus extends JavaPlugin {
 
     private static String directory = "plugins/tradesPlus/";
 
-    public static ArrayList<UUID> villagers = new ArrayList<>();
+    public static HashSet<UUID> villagers = new HashSet<>();
 
     private static TradesPlus instance;
 

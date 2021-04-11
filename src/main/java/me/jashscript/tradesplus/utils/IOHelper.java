@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.UUID;
 
 public class IOHelper {
@@ -81,14 +82,14 @@ public class IOHelper {
         return Mapper.fromListOfBase64(serializedList);
     }
 
-    public static ArrayList<UUID> getVillagers() throws IOException {
+    public static HashSet<UUID> getVillagers() throws IOException {
         Path path = Paths.get("plugins/tradesPlus/villagers");
-        ArrayList<UUID> uuids =  gson.fromJson(new String(Files.readAllBytes(path)), new TypeToken<ArrayList<UUID>>(){}.getType());
-        if(uuids == null) return new ArrayList<>();
+        HashSet<UUID> uuids =  gson.fromJson(new String(Files.readAllBytes(path)), new TypeToken<HashSet<UUID>>(){}.getType());
+        if(uuids == null) return new HashSet<>();
         return uuids;
     }
 
-    public static void saveVillagers(ArrayList<UUID> villagers) throws IOException {
+    public static void saveVillagers(HashSet<UUID> villagers) throws IOException {
         Path path = Paths.get("plugins/tradesPlus/villagers");
         Files.write(path, gson.toJson(villagers).getBytes());
     }
