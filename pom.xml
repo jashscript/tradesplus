@@ -40,12 +40,10 @@
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <relocations>
-                                <pattern>
-                                    com.github.MrNemo64.player-inputs
-                                </pattern>
-                                <shadedPattern>
-                                    me.jashscript.tradesplus.shaded.player-inputs
-                                </shadedPattern>
+                                <relocation>
+                                    <pattern>me.nemo_64.spigotutilities.playerinputs</pattern>
+                                    <shadedPattern>me.jashscript.tradesplus.shaded.playerinputs</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>
