@@ -17,15 +17,15 @@ public class MainMenu {
     public static Inventory build(){
         Inventory inventory = Bukkit.createInventory(null, 27, TradesPlus.translateText("&dTradesPlus Main Menu |"));
 
-        inventory.setItem(11, CustomTradeButton());
-        inventory.setItem(13, RemoveTrade());
-        inventory.setItem(15, ForbidTrade());
+        inventory.setItem(11, customTrade());
+        inventory.setItem(13, removeTrade());
+        inventory.setItem(15, forbidTrade());
 
         return inventory;
     }
 
 
-    private static ItemStack CustomTradeButton(){
+    private static ItemStack customTrade(){
         ItemStack stack = new ItemStack(Material.SHULKER_BOX);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&aCustom Trades"));
@@ -39,7 +39,7 @@ public class MainMenu {
     }
 
 
-    private static ItemStack RemoveTrade(){
+    private static ItemStack removeTrade(){
         ItemStack stack = new ItemStack(Material.BLAZE_POWDER);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&aRemove Trade"));
@@ -53,7 +53,7 @@ public class MainMenu {
         return stack;
     }
 
-    private static ItemStack ForbidTrade(){
+    private static ItemStack forbidTrade(){
         ItemStack stack = new ItemStack(Material.LAVA_BUCKET);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&aForbid Trade"));

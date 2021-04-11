@@ -13,23 +13,23 @@ public class RemoveTradeMenu{
 
 
     public static Inventory build(){
-        Inventory inventory = Bukkit.createInventory(null, 54, TradesPlus.translateText("&dRemove Trade Menu |"));
+        Inventory inventory = Bukkit.createInventory(null, 54, TradesPlus.translateText("&d19Remove Trade Menu |"));
 
 
         for(int i = 0; i< TradesPlus.professions.size(); i++){
             inventory.setItem(i,
-                    ProfessionButton(TradesPlus.professions.get(i).toString().toLowerCase(Locale.ROOT)));
+                    professionButton(TradesPlus.professions.get(i).toString().toLowerCase(Locale.ROOT)));
         }
 
-        inventory.setItem(45, ReturnButton());
+        inventory.setItem(45, returnButton());
         for(int i = 46; i<54;i++){
-            inventory.setItem(i, Blank());
+            inventory.setItem(i, blank());
         }
 
         return inventory;
     }
 
-    private static ItemStack ProfessionButton(String profession){
+    private static ItemStack professionButton(String profession){
         ItemStack stack = new ItemStack(Material.VILLAGER_SPAWN_EGG);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&a"+profession));
@@ -37,7 +37,7 @@ public class RemoveTradeMenu{
         return stack;
     }
 
-    private static ItemStack Blank(){
+    private static ItemStack blank(){
         ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(" ");
@@ -46,7 +46,7 @@ public class RemoveTradeMenu{
     }
 
 
-    private static ItemStack ReturnButton(){
+    private static ItemStack returnButton(){
         ItemStack stack = new ItemStack(Material.REPEATER);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&cReturn"));

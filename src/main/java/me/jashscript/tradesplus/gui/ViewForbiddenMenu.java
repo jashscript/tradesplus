@@ -27,24 +27,24 @@ public class ViewForbiddenMenu {
 
         for(int i = 0; i<currentPage.size(); i++){
             inventory.setItem(i,
-                    ForbiddenTradeButton(currentPage.get(i)));
+                    forbiddenTradeButton(currentPage.get(i)));
         }
 
-        inventory.setItem(45, ReturnButton());
+        inventory.setItem(45, returnButton());
         for(int i = 46; i<53;i++){
-            inventory.setItem(i, Blank());
+            inventory.setItem(i, blank());
         }
 
         if(page<paginated.size()-1){
-            inventory.setItem(53, NextPage());
+            inventory.setItem(53, nextPage());
         }
 
-        inventory.setItem(49, ForbidButton(page));
+        inventory.setItem(49, forbidButton(page));
 
         return inventory;
     }
 
-    private static ItemStack Blank(){
+    private static ItemStack blank(){
         ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(" ");
@@ -52,7 +52,7 @@ public class ViewForbiddenMenu {
         return stack;
     }
 
-    private static ItemStack ReturnButton(){
+    private static ItemStack returnButton(){
         ItemStack stack = new ItemStack(Material.REPEATER);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&cReturn"));
@@ -60,7 +60,7 @@ public class ViewForbiddenMenu {
         return stack;
     }
 
-    private static ItemStack ForbiddenTradeButton(ItemStack removed){
+    private static ItemStack forbiddenTradeButton(ItemStack removed){
         ItemMeta meta = removed.getItemMeta();
         ArrayList<String> lore = new LoreBuilder().addLore("&l&cPress Q to allow that trade again.").build();
         meta.setLore(lore);
@@ -68,7 +68,7 @@ public class ViewForbiddenMenu {
         return removed;
     }
 
-    private static ItemStack ForbidButton(int page){
+    private static ItemStack forbidButton(int page){
         ItemStack stack = new ItemStack(Material.REDSTONE_BLOCK);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&aForbid Trade"));
@@ -78,7 +78,7 @@ public class ViewForbiddenMenu {
         return stack;
     }
 
-    private static ItemStack NextPage(){
+    private static ItemStack nextPage(){
         ItemStack stack = new ItemStack(Material.ARROW);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&fNext Page"));

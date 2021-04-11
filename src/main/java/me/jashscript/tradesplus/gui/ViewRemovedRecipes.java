@@ -1,7 +1,6 @@
 package me.jashscript.tradesplus.gui;
 
 import me.jashscript.tradesplus.TradesPlus;
-import me.jashscript.tradesplus.model.CustomRecipe;
 import me.jashscript.tradesplus.utils.IOHelper;
 import me.jashscript.tradesplus.utils.LoreBuilder;
 import me.jashscript.tradesplus.utils.Mapper;
@@ -28,24 +27,24 @@ public class ViewRemovedRecipes {
 
         for(int i = 0; i<currentPage.size(); i++){
             inventory.setItem(i,
-                    RemovedTradeButton(currentPage.get(i)));
+                    removedTradeButton(currentPage.get(i)));
         }
 
-        inventory.setItem(45, ReturnButton());
+        inventory.setItem(45, returnButton());
         for(int i = 46; i<53;i++){
-            inventory.setItem(i, Blank());
+            inventory.setItem(i, blank());
         }
 
         if(page<paginated.size()-1){
-            inventory.setItem(53, NextPage());
+            inventory.setItem(53, nextPage());
         }
 
-        inventory.setItem(49, RemoveButton(page));
+        inventory.setItem(49, removeButton(page));
 
         return inventory;
     }
 
-    private static ItemStack Blank(){
+    private static ItemStack blank(){
         ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(" ");
@@ -53,7 +52,7 @@ public class ViewRemovedRecipes {
         return stack;
     }
 
-    private static ItemStack ReturnButton(){
+    private static ItemStack returnButton(){
         ItemStack stack = new ItemStack(Material.REPEATER);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&cReturn"));
@@ -61,7 +60,7 @@ public class ViewRemovedRecipes {
         return stack;
     }
 
-    private static ItemStack RemovedTradeButton(ItemStack removed){
+    private static ItemStack removedTradeButton(ItemStack removed){
         ItemMeta meta = removed.getItemMeta();
         ArrayList<String> lore = new LoreBuilder().addLore("&l&cPress Q to allow that trade again.").build();
         meta.setLore(lore);
@@ -69,7 +68,7 @@ public class ViewRemovedRecipes {
         return removed;
     }
 
-    private static ItemStack RemoveButton(int page){
+    private static ItemStack removeButton(int page){
         ItemStack stack = new ItemStack(Material.REDSTONE_BLOCK);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&aRemove Trade"));
@@ -79,7 +78,7 @@ public class ViewRemovedRecipes {
         return stack;
     }
 
-    private static ItemStack NextPage(){
+    private static ItemStack nextPage(){
         ItemStack stack = new ItemStack(Material.ARROW);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&fNext Page"));

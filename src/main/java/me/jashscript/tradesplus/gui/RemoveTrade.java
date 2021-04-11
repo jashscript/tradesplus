@@ -18,17 +18,17 @@ public class RemoveTrade{
 
         for(int i = 0; i<27;i++){
             if(i!=14 && i!=13)
-                inventory.setItem(i,Blank());
+                inventory.setItem(i, blank());
         }
 
-        inventory.setItem(14, Divider());
+        inventory.setItem(14, divider());
 
-        inventory.setItem(26, Confirm());
+        inventory.setItem(26, confirm());
 
         return inventory;
     }
 
-    private static ItemStack Blank(){
+    private static ItemStack blank(){
         ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(" ");
@@ -36,7 +36,7 @@ public class RemoveTrade{
         return stack;
     }
 
-    private static ItemStack Divider(){
+    private static ItemStack divider(){
         ItemStack stack = new ItemStack(Material.REDSTONE_BLOCK);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(" ");
@@ -48,7 +48,7 @@ public class RemoveTrade{
     }
 
 
-    private static ItemStack Confirm(){
+    private static ItemStack confirm(){
         ItemStack stack = new ItemStack(Material.EMERALD_BLOCK);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&aConfirm"));

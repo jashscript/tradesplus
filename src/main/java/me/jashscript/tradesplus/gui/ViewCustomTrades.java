@@ -14,7 +14,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class ViewCustomTrades {
 
@@ -30,24 +29,24 @@ public class ViewCustomTrades {
 
         for(int i = 0; i<currentPage.size(); i++){
             inventory.setItem(i,
-                    RecipeButton(currentPage.get(i)));
+                    recipeButton(currentPage.get(i)));
         }
 
-        inventory.setItem(45, ReturnButton());
+        inventory.setItem(45, returnButton());
         for(int i = 46; i<53;i++){
-            inventory.setItem(i, Blank());
+            inventory.setItem(i, blank());
         }
 
         if(page<paginated.size()-1){
-            inventory.setItem(53, NextPage());
+            inventory.setItem(53, nextPage());
         }
 
-        inventory.setItem(49, AddButton(page));
+        inventory.setItem(49, addButton(page));
 
         return inventory;
     }
 
-    private static ItemStack Blank(){
+    private static ItemStack blank(){
         ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(" ");
@@ -55,7 +54,7 @@ public class ViewCustomTrades {
         return stack;
     }
 
-    private static ItemStack ReturnButton(){
+    private static ItemStack returnButton(){
         ItemStack stack = new ItemStack(Material.REPEATER);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&cReturn"));
@@ -63,7 +62,7 @@ public class ViewCustomTrades {
         return stack;
     }
 
-    private static ItemStack RecipeButton(CustomRecipe customRecipe){
+    private static ItemStack recipeButton(CustomRecipe customRecipe){
         ItemStack stack = customRecipe.result;
         ItemMeta meta = stack.getItemMeta();
         ArrayList<String> lore = new LoreBuilder().addLore("&l&cPress Q to remove recipe.").build();
@@ -72,7 +71,7 @@ public class ViewCustomTrades {
         return stack;
     }
 
-    private static ItemStack AddButton(int page){
+    private static ItemStack addButton(int page){
         ItemStack stack = new ItemStack(Material.EMERALD_BLOCK);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&aAdd Trade"));
@@ -82,7 +81,7 @@ public class ViewCustomTrades {
         return stack;
     }
 
-    private static ItemStack NextPage(){
+    private static ItemStack nextPage(){
         ItemStack stack = new ItemStack(Material.ARROW);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(TradesPlus.translateText("&l&fNext Page"));

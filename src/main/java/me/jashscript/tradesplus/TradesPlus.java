@@ -22,11 +22,11 @@ import java.util.UUID;
 
 public final class TradesPlus extends JavaPlugin {
 
-    public static ArrayList<Villager.Profession> professions = new ArrayList<>();
+    public static final ArrayList<Villager.Profession> professions = new ArrayList<>();
 
-    private static String directory = "plugins/tradesPlus/";
+    private static final String directory = "plugins/tradesPlus/";
 
-    public static HashSet<UUID> villagers = new HashSet<>();
+    public static final HashSet<UUID> villagers = new HashSet<>();
 
     private static TradesPlus instance;
 
@@ -80,7 +80,8 @@ public final class TradesPlus extends JavaPlugin {
             }
         } else {
             try {
-                villagers = IOHelper.getVillagers();
+                villagers.clear();
+                villagers.addAll(IOHelper.getVillagers());
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
