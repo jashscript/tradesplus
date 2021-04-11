@@ -1,0 +1,7 @@
+name: Tradesplus
+version: ${project.version}
+main: me.jashscript.tradesplus.TradesPlus
+api-version: 1.16
+commands:
+  tradesplus:
+    permission: tradesplus.use
