@@ -4,7 +4,6 @@ import me.jashscript.tradesplus.model.CustomRecipe;
 import me.jashscript.tradesplus.utils.IOHelper;
 import me.jashscript.tradesplus.utils.Mapper;
 import org.bukkit.Material;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
@@ -27,7 +26,10 @@ public class VillagerListener implements Listener {
 
         if (TradesPlus.villagers.contains(villager.getUniqueId())) return;
 
+
         String profession = villager.getProfession().toString().toLowerCase(Locale.ROOT);
+
+        if(profession.equals("profession") || profession.equals("none")) return;
 
         List<MerchantRecipe> recipes = new ArrayList<>(villager.getRecipes());
 
